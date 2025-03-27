@@ -1,0 +1,16 @@
+
+version: '1.0.0'
+name: data_platform
+services:
+  spark-thrift-server:
+    build: .
+    ports:
+      - "10000:10000"
+    container_name: spark-thrift-server
+    networks:
+      - data_platform_network
+
+networks:
+  data_platform_network:
+    external: true
+

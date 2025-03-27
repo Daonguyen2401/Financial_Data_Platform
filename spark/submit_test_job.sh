@@ -1,0 +1,1 @@
+spark-submit  --properties-file ./spark.conf   --jars $(echo ./jars/*.jar | tr ' ' ',')   --deploy-mode client   testspark_delta.py

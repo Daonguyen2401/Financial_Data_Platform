@@ -1,0 +1,6 @@
+CREATE SCHEMA lakehouse.bronze WITH (location = 's3a://bronze/');
+
+
+CALL lakehouse.system.register_table(schema_name => 'bronze', table_name => 'listing_by_exchange', table_location => 's3a://bronze/listing_by_exchange/')
+
+SELECT * FROM lakehouse.bronze.listing_by_exchange LIMIT 10;
