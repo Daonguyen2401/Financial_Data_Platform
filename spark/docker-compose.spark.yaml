@@ -56,20 +56,20 @@ services:
       SPARK_WORKER_MEMORY: 3g
       SPARK_MASTER_URL: spark://spark-master:7077
 
-  spark-thrift:
-    <<: *spark-common
-    command: /opt/bitnami/spark/sbin/start-thriftserver.sh \
-      --master spark://spark-master:7077 \
-      --conf spark.sql.catalogImplementation=hive \
-      --conf spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension \
-      --packages io.delta:delta-spark_2.12:3.3.0,io.delta:delta-core_2.12:3.3.0
-    depends_on:
-      - spark-master
-    ports:
-      - "10000:10000"
-    environment:
-      <<: *spark-common-env
-      SPARK_MODE: thriftserver
+  # spark-thrift:
+  #   <<: *spark-common
+  #   command: /opt/bitnami/spark/sbin/start-thriftserver.sh --master spark://spark-master:7077
+  #   depends_on:
+  #     - spark-master
+  #   ports:
+  #     - "10000:10000"
+  #   environment:
+  #     <<: *spark-common-env
+  #     SPARK_MODE: thriftserver
+  #   #   SPARK_DAEMON_JAVA_OPTS: -Dspark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension -Dspark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog
+  #   #   SPARK_CLASSPATH: /opt/bitnami/spark/jars/*:/opt/bitnami/spark/additionaljars/*
+  #   # volumes:
+  #   #   - ./jars:/opt/bitnami/spark/additionaljars
 
 
 networks:
