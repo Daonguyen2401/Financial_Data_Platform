@@ -1,0 +1,14 @@
+{
+    "name": "devices-cdc",  
+    "config": {
+      "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+      "database.hostname": "timescaledb",
+      "database.port": "5432",
+      "database.user": "postgres",
+      "database.password": "postgres",
+      "database.dbname" : "timescaledb",
+      "plugin.name": "pgoutput",
+      "database.server.name": "test",
+      "table.include.list": "public.devices"
+    }
+}
