@@ -35,7 +35,7 @@ def test_minio_delta_interaction():
     
     # Read Delta table from MinIO
     try:
-        read_df = spark.read.format("delta").load("s3a://spark-bucket/demo")
+        read_df = spark.read.format("delta").load("s3a://silver/silver_listing_by_exchange_new-1d1e0ec77a5a49dc97db6f6fc79428a4")
         print("Reading Delta table from MinIO:")
         read_df.show()
     except Exception as e:
